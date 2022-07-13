@@ -1,4 +1,5 @@
 import 'package:apna_store/constants/global_variables.dart';
+import 'package:apna_store/features/auth/screens/auth_screen.dart';
 import 'package:apna_store/router.dart';
 import 'package:flutter/material.dart';
 
@@ -28,24 +29,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: Scaffold(
-          appBar: AppBar(
-            title: const Center(
-              child: Text('Apna Store'),
-            ),
-          ),
-          body: Column(
-            children: [
-              const Center(
-                child: Text('Flutter Demo Home Page'),
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    print("Button pressed");
-                  },
-                  child: const Text('Click me')),
-            ],
-          )),
+      home: const AuthScreen(),
     );
   }
 }
