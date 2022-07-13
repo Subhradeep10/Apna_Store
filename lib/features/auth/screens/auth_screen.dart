@@ -119,7 +119,34 @@ class _AuthScreenState extends State<AuthScreen> {
                         });
                       },
                     ),
-                  )
+                  ),
+                  if (_auth == Auth.signin)
+                    Form(
+                      key: _signInFormKey,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            CustomTextField(
+                              controller: _emailController,
+                              hintText: 'Email',
+                            ),
+                            const SizedBox(height: 10),
+                            CustomTextField(
+                              controller: _passwordController,
+                              hintText: 'Password',
+                            ),
+                            const SizedBox(height: 10),
+                            CustomButton(
+                                text: 'Sign In',
+                                onTap: () {
+                                  print("SignIn working");
+                                }),
+                            const SizedBox(height: 10),
+                          ],
+                        ),
+                      ),
+                    ),
                 ],
               ),
             ),
