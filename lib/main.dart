@@ -1,3 +1,4 @@
+import 'package:apna_store/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,12 +14,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Apna Store',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+        ),
+        scaffoldBackgroundColor: GlobalVariables.backgroundColor,
       ),
-      home: const Scaffold(
-          body: Center(
-        child: Text('Flutter Demo Home Page'),
-      )),
+      home: Scaffold(
+          appBar: AppBar(
+            title: const Center(
+              child: Text('Apna Store'),
+            ),
+          ),
+          body: const Center(
+            child: Text('Flutter Demo Home Page'),
+          )),
     );
   }
 }
