@@ -15,9 +15,16 @@ class MyApp extends StatelessWidget {
       title: 'Apna Store',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
+          color: GlobalVariables.selectedNavBarColor,
           elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
         ),
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+        colorScheme: const ColorScheme.light(
+          primary: GlobalVariables.secondaryColor,
+        ),
       ),
       home: Scaffold(
           appBar: AppBar(
@@ -25,8 +32,17 @@ class MyApp extends StatelessWidget {
               child: Text('Apna Store'),
             ),
           ),
-          body: const Center(
-            child: Text('Flutter Demo Home Page'),
+          body: Column(
+            children: [
+              const Center(
+                child: Text('Flutter Demo Home Page'),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    print("Button pressed");
+                  },
+                  child: const Text('Click me')),
+            ],
           )),
     );
   }
