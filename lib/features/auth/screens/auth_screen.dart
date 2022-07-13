@@ -1,3 +1,4 @@
+import 'package:apna_store/common/widgets/custom_Button.dart';
 import 'package:apna_store/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 
@@ -71,21 +72,33 @@ class _AuthScreenState extends State<AuthScreen> {
                   if (_auth == Auth.signup)
                     Form(
                       key: _signUpFormKey,
-                      child: Column(
-                        children: [
-                          CustomTextField(
-                            controller: _nameController,
-                            hintText: 'Name',
-                          ),
-                          CustomTextField(
-                            controller: _emailController,
-                            hintText: 'Email',
-                          ),
-                          CustomTextField(
-                            controller: _passwordController,
-                            hintText: 'Password',
-                          ),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            CustomTextField(
+                              controller: _nameController,
+                              hintText: 'Name',
+                            ),
+                            const SizedBox(height: 10),
+                            CustomTextField(
+                              controller: _emailController,
+                              hintText: 'Email',
+                            ),
+                            const SizedBox(height: 10),
+                            CustomTextField(
+                              controller: _passwordController,
+                              hintText: 'Password',
+                            ),
+                            const SizedBox(height: 10),
+                            CustomButton(
+                                text: 'Sign Up',
+                                onTap: () {
+                                  print("It's working");
+                                }),
+                            const SizedBox(height: 10),
+                          ],
+                        ),
                       ),
                     ),
                   ListTile(
