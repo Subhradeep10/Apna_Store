@@ -1,4 +1,5 @@
 import 'package:apna_store/constants/global_variables.dart';
+import 'package:apna_store/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
           primary: GlobalVariables.secondaryColor,
         ),
       ),
+      onGenerateRoute: (settings) => generateRoute(settings),
       home: Scaffold(
           appBar: AppBar(
             title: const Center(
