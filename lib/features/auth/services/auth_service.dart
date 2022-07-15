@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:apna_store/constants/error_handling..dart';
 import 'package:apna_store/constants/global_variables.dart';
 import 'package:apna_store/constants/utils.dart';
@@ -33,6 +35,33 @@ class AuthService {
           context: context,
           onSuccess: () {
             showSnackBar(context, 'Account has been created successfully');
+          });
+    } catch (e) {
+      showSnackBar(context, 'Something went wrong');
+    }
+  }
+
+  //Sign in
+  void signinUser({
+    required BuildContext context,
+    required String email,
+    required String password,
+  }) async {
+    try {
+      http.Response res = await http.post(
+        Uri.parse('$uri/api/signin'),
+        body: jsonEncode({
+          'email': email,
+          'password': password,
+        }),
+        headers: {'Content-Type': 'application/json'},
+      );
+      print(res.body);
+      httpErrorHandle(
+          response: res,
+          context: context,
+          onSuccess: () {
+            showSnackBar(context, 'Sign in successful');
           });
     } catch (e) {
       showSnackBar(context, 'Something went wrong');
