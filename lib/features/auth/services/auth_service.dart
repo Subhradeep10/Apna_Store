@@ -1,4 +1,6 @@
+import 'package:apna_store/constants/global_variables.dart';
 import 'package:apna_store/models/user.dart';
+import 'package:http/http.dart' as http;
 
 class AuthService {
   //Sign up
@@ -17,6 +19,12 @@ class AuthService {
         type: '',
         token: '',
       );
+      http.Response res = await http.post(
+        Uri.parse('$uri/api/signup'),
+        body: user.toJson(),
+        headers: {'Content-Type': 'application/json'},
+      );
+      print(res.statusCode);
     } catch (e) {
       print(e);
     }
