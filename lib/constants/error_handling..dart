@@ -17,5 +17,8 @@ void httpErrorHandle({
     case 500:
       showSnackBar(context, 'Internal Server Error');
       break;
+    default:
+      showSnackBar(context, 'Something went wrong');
+      break;
   }
 }

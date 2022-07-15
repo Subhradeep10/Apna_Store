@@ -1,5 +1,6 @@
 import 'package:apna_store/common/widgets/custom_Button.dart';
 import 'package:apna_store/constants/global_variables.dart';
+import 'package:apna_store/features/auth/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/widgets/custom_textfield.dart';
@@ -19,6 +20,7 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   Auth _auth = Auth.signup;
+  final AuthService authService = AuthService();
   final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
@@ -31,6 +33,15 @@ class _AuthScreenState extends State<AuthScreen> {
     _passwordController.dispose();
     _nameController.dispose();
     super.dispose();
+  }
+
+  void signUpUser() async {
+    authService.signupUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+      name: _nameController.text,
+    );
   }
 
   @override
@@ -94,7 +105,9 @@ class _AuthScreenState extends State<AuthScreen> {
                             CustomButton(
                                 text: 'Sign Up',
                                 onTap: () {
-                                  print("It's working");
+                                  if (_signUpFormKey.currentState!.validate()) {
+                                    signUpUser();
+                                  }
                                 }),
                             const SizedBox(height: 10),
                           ],
