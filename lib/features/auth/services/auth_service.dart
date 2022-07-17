@@ -1,11 +1,11 @@
 import 'dart:convert';
-
 import 'package:apna_store/constants/error_handling..dart';
 import 'package:apna_store/constants/global_variables.dart';
 import 'package:apna_store/constants/utils.dart';
 import 'package:apna_store/models/user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
   //Sign up
@@ -60,8 +60,9 @@ class AuthService {
       httpErrorHandle(
           response: res,
           context: context,
-          onSuccess: () {
-            showSnackBar(context, 'Sign in successful');
+          onSuccess: () async {
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            prefs.setString('x-auth-token', res.body);
           });
     } catch (e) {
       showSnackBar(context, 'Something went wrong');
