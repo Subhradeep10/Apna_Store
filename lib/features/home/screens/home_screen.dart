@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const String routeName = '/home';
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
       body: Center(
-        child: Text(user.toString()),
+        child: Text(user.toJson()),
       ),
     );
   }
