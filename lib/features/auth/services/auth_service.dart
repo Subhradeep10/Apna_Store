@@ -3,8 +3,10 @@ import 'package:apna_store/constants/error_handling..dart';
 import 'package:apna_store/constants/global_variables.dart';
 import 'package:apna_store/constants/utils.dart';
 import 'package:apna_store/models/user.dart';
+import 'package:apna_store/providers/user_providers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
@@ -64,6 +66,8 @@ class AuthService {
             SharedPreferences prefs = await SharedPreferences.getInstance();
             await prefs.setString(
                 'x-auth-token', jsonDecode(res.body)['token']);
+            Provider.of<UserProvider>(context, listen: false)
+                .setUser(jsonDecode(res.body)['user']);
           });
     } catch (e) {
       showSnackBar(context, 'Something went wrong');
