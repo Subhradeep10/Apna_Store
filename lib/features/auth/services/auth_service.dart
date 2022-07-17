@@ -62,7 +62,8 @@ class AuthService {
           context: context,
           onSuccess: () async {
             SharedPreferences prefs = await SharedPreferences.getInstance();
-            prefs.setString('x-auth-token', res.body);
+            await prefs.setString(
+                'x-auth-token', jsonDecode(res.body)['token']);
           });
     } catch (e) {
       showSnackBar(context, 'Something went wrong');
