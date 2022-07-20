@@ -1,5 +1,6 @@
 import 'package:apna_store/constants/global_variables.dart';
 import 'package:apna_store/features/auth/screens/auth_screen.dart';
+import 'package:apna_store/features/auth/services/auth_service.dart';
 import 'package:apna_store/providers/user_providers.dart';
 import 'package:apna_store/router.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final AuthService authService = AuthService();
   @override
   void initState() {
     super.initState();

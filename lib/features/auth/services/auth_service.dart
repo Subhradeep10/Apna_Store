@@ -59,7 +59,6 @@ class AuthService {
         }),
         headers: {'Content-Type': 'application/json'},
       );
-      print(res.body);
       httpErrorHandle(
           response: res,
           context: context,
@@ -74,6 +73,48 @@ class AuthService {
               (route) => false,
             );
           });
+    } catch (e) {
+      showSnackBar(context, 'Something went wrong');
+    }
+  }
+
+  //Get user Data
+  void getUserData(
+    BuildContext context,
+  ) async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString('x-auth-token');
+      if (token == null) {
+        prefs.setString('x-auth-token', '');
+      }
+      var tokenRes = await http.post(
+        Uri.parse('$uri/tokenIsValid'),
+        headers: {'x-auth-token': token!},
+      );
+
+      // http.Response res = await http.post(
+      //   Uri.parse('$uri/api/signin'),
+      //   body: jsonEncode({
+      //     'email': email,
+      //     'password': password,
+      //   }),
+      //   headers: {'Content-Type': 'application/json'},
+      // );
+      // httpErrorHandle(
+      //     response: res,
+      //     context: context,
+      //     onSuccess: () async {
+      //       SharedPreferences prefs = await SharedPreferences.getInstance();
+      //       Provider.of<UserProvider>(context, listen: false).setUser(res.body);
+      //       await prefs.setString(
+      //           'x-auth-token', jsonDecode(res.body)['token']);
+      //       Navigator.pushNamedAndRemoveUntil(
+      //         context,
+      //         HomeScreen.routeName,
+      //         (route) => false,
+      //       );
+      //     });
     } catch (e) {
       showSnackBar(context, 'Something went wrong');
     }
