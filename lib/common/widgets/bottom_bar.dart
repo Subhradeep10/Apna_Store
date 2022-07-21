@@ -23,6 +23,7 @@ class _BottomBarState extends State<BottomBar> {
         backgroundColor: GlobalVariables.backgroundColor,
         iconSize: 26,
         items: [
+          // Home Section
           BottomNavigationBarItem(
             icon: Container(
               width: BottomNavigationBarWidth,
@@ -42,13 +43,15 @@ class _BottomBarState extends State<BottomBar> {
             ),
             label: '',
           ),
+
+          //Acount Section
           BottomNavigationBarItem(
             icon: Container(
               width: BottomNavigationBarWidth,
               decoration: BoxDecoration(
                 border: Border(
                   top: BorderSide(
-                    color: _page == 0
+                    color: _page == 1
                         ? GlobalVariables.selectedNavBarColor
                         : GlobalVariables.unselectedNavBarColor,
                     width: BottomBarBorderWidth,
@@ -56,7 +59,28 @@ class _BottomBarState extends State<BottomBar> {
                 ),
               ),
               child: const Icon(
-                Icons.home_outlined,
+                Icons.person_outlined,
+              ),
+            ),
+            label: '',
+          ),
+
+          //Cart Section
+          BottomNavigationBarItem(
+            icon: Container(
+              width: BottomNavigationBarWidth,
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: _page == 2
+                        ? GlobalVariables.selectedNavBarColor
+                        : GlobalVariables.unselectedNavBarColor,
+                    width: BottomBarBorderWidth,
+                  ),
+                ),
+              ),
+              child: const Icon(
+                Icons.shopping_cart_outlined,
               ),
             ),
             label: '',
