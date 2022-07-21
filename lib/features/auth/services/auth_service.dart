@@ -96,7 +96,7 @@ class AuthService {
       var response = jsonDecode(tokenRes.body);
       if (response == true) {
         http.Response res = await http.get(
-          Uri.parse('$uri/api/user'),
+          Uri.parse('$uri/'),
           headers: {'x-auth-token': token},
         );
 

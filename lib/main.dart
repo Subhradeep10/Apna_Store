@@ -1,6 +1,7 @@
 import 'package:apna_store/constants/global_variables.dart';
 import 'package:apna_store/features/auth/screens/auth_screen.dart';
 import 'package:apna_store/features/auth/services/auth_service.dart';
+import 'package:apna_store/features/home/screens/home_screen.dart';
 import 'package:apna_store/providers/user_providers.dart';
 import 'package:apna_store/router.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    authService.getUserData(context);
   }
 
   // This widget is the root of your application.
@@ -48,7 +50,9 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: const AuthScreen(),
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+          ? const HomeScreen()
+          : const AuthScreen(),
     );
   }
 }
