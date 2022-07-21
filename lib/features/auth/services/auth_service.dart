@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:apna_store/common/widgets/bottom_bar.dart';
 import 'package:apna_store/constants/error_handling..dart';
 import 'package:apna_store/constants/global_variables.dart';
 import 'package:apna_store/constants/utils.dart';
@@ -69,7 +70,7 @@ class AuthService {
                 'x-auth-token', jsonDecode(res.body)['token']);
             Navigator.pushNamedAndRemoveUntil(
               context,
-              HomeScreen.routeName,
+              BottomBar.routeName,
               (route) => false,
             );
           });

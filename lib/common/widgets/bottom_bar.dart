@@ -1,5 +1,6 @@
 import 'package:apna_store/constants/global_variables.dart';
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart';
 
 class BottomBar extends StatefulWidget {
   static const String routeName = '/actual-home';
@@ -53,7 +54,7 @@ class _BottomBarState extends State<BottomBar> {
                   top: BorderSide(
                     color: _page == 1
                         ? GlobalVariables.selectedNavBarColor
-                        : GlobalVariables.unselectedNavBarColor,
+                        : GlobalVariables.backgroundColor,
                     width: BottomBarBorderWidth,
                   ),
                 ),
@@ -74,13 +75,16 @@ class _BottomBarState extends State<BottomBar> {
                   top: BorderSide(
                     color: _page == 2
                         ? GlobalVariables.selectedNavBarColor
-                        : GlobalVariables.unselectedNavBarColor,
+                        : GlobalVariables.backgroundColor,
                     width: BottomBarBorderWidth,
                   ),
                 ),
               ),
-              child: const Icon(
-                Icons.shopping_cart_outlined,
+              child: Badge(
+                elevation: 0,
+                badgeContent: const Text('3'),
+                badgeColor: GlobalVariables.selectedNavBarColor,
+                child: const Icon(Icons.shopping_cart_outlined),
               ),
             ),
             label: '',
