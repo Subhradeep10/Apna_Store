@@ -1,4 +1,5 @@
 import 'package:apna_store/constants/global_variables.dart';
+import 'package:apna_store/features/home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 
@@ -14,15 +15,28 @@ class _BottomBarState extends State<BottomBar> {
   int _page = 0;
   double BottomNavigationBarWidth = 42;
   double BottomBarBorderWidth = 5;
+
+  List<Widget> pages = [
+    const HomeScreen(),
+    const Center(child: Text('Account')),
+    const Center(child: Text('Cart')),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _page,
         selectedItemColor: GlobalVariables.selectedNavBarColor,
         unselectedItemColor: GlobalVariables.unselectedNavBarColor,
         backgroundColor: GlobalVariables.backgroundColor,
         iconSize: 26,
+        onTap: (int index) {
+          setState(() {
+            _page = index;
+          });
+        },
         items: [
           // Home Section
           BottomNavigationBarItem(
@@ -33,7 +47,7 @@ class _BottomBarState extends State<BottomBar> {
                   top: BorderSide(
                     color: _page == 0
                         ? GlobalVariables.selectedNavBarColor
-                        : GlobalVariables.unselectedNavBarColor,
+                        : GlobalVariables.backgroundColor,
                     width: BottomBarBorderWidth,
                   ),
                 ),
