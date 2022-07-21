@@ -3,6 +3,7 @@ const User = require('../models/user');
 const authRouter = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth');
 
 //Signup route
 authRouter.post('/api/signup', async (req, res) => {
@@ -73,7 +74,14 @@ authRouter.post('/tokenIsValid', async (req, res) => {
 });
 
 //Get User Data
-authRouter.get('/', auth)
+authRouter.get('/', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user);
+        res.json(user);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+})
 
 
 module.exports = authRouter;

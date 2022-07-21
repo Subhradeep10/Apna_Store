@@ -95,8 +95,13 @@ class AuthService {
 
       var response = jsonDecode(tokenRes.body);
       if (response == true) {
-        await prefs.setString(
-            'x-auth-token', jsonDecode(tokenRes.body)['token']);
+        http.Response res = await http.get(
+          Uri.parse('$uri/api/user'),
+          headers: {'x-auth-token': token},
+        );
+
+        var userProvider = Provider.of<UserProvider>(context, listen: false);
+        userProvider.setUser(res.body);
       }
 
       // http.Response res = await http.post(

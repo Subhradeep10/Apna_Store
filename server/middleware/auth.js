@@ -9,9 +9,12 @@ const auth = async (req, res, next) => {
         if (!decoded) {
             return res.status(401).json({ msg: 'Token is not valid' });
         }
-        req.user = decoded;
+        req.user = decoded.id;
+        req.token = token;
         next();
     } catch (err) {
         throw err;
     }
-}
+};
+
+module.exports = auth;
