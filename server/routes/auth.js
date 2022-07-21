@@ -73,7 +73,7 @@ authRouter.post('/tokenIsValid', async (req, res) => {
 });
 
 //Get User Data
-authRouter.get('/', auth);
+authRouter.get('/', auth)
 
 
 module.exports = authRouter;

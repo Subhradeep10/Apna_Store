@@ -93,6 +93,12 @@ class AuthService {
         headers: {'x-auth-token': token!},
       );
 
+      var response = jsonDecode(tokenRes.body);
+      if (response == true) {
+        await prefs.setString(
+            'x-auth-token', jsonDecode(tokenRes.body)['token']);
+      }
+
       // http.Response res = await http.post(
       //   Uri.parse('$uri/api/signin'),
       //   body: jsonEncode({
