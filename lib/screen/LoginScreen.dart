@@ -1,5 +1,5 @@
 import 'package:apna_store/const/AppColors.dart';
-import 'package:apna_store/screen/HomeScreen.dart';
+import 'package:apna_store/screen/BottomNav.dart';
 import 'package:apna_store/screen/RegistrationScreen.dart';
 import 'package:apna_store/widget/CustomButton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
       print(authCredential!.uid);
       if (authCredential.uid.isNotEmpty) {
         Navigator.push(
-            context, CupertinoPageRoute(builder: (_) => HomeScreen()));
+            context, CupertinoPageRoute(builder: (_) => BottomNavbar()));
       } else {
         Fluttertoast.showToast(msg: "Something is wrong");
       }

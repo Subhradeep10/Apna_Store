@@ -1,5 +1,5 @@
 import 'package:apna_store/const/AppColors.dart';
-import 'package:apna_store/screen/HomeScreen.dart';
+import 'package:apna_store/screen/BottomNav.dart';
 import 'package:apna_store/widget/CustomButton.dart';
 import 'package:apna_store/widget/MytextField.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -51,7 +51,7 @@ class _UserFormState extends State<UserForm> {
           "age": _ageController.text,
         })
         .then((value) => Navigator.push(
-            context, MaterialPageRoute(builder: (_) => HomeScreen())))
+            context, MaterialPageRoute(builder: (_) => BottomNavbar())))
         .catchError((error) => print("something is wrong. $error"));
   }
 
