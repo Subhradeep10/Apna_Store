@@ -1,5 +1,5 @@
 import 'package:flutter/animation.dart';
 
 class AppColors {
-  static const Color primaryColor = Color(0xFF1E88E5);
+  static const Color primaryColor = Color.fromARGB(255, 0, 32, 59);
 }
