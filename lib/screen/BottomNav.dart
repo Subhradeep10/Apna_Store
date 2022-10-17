@@ -3,6 +3,7 @@ import 'package:apna_store/screen/BottomNavPages/CartPage.dart';
 import 'package:apna_store/screen/BottomNavPages/FavouritePage.dart';
 import 'package:apna_store/screen/BottomNavPages/HomePage.dart';
 import 'package:apna_store/screen/BottomNavPages/ProfilePage.dart';
+import 'package:apna_store/screen/BottomNavPages/SearchScreen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavbar extends StatefulWidget {
@@ -16,6 +17,7 @@ class _HomeScreenState extends State<BottomNavbar> {
   int _selectedIndex = 0;
   final pages = [
     const HomePage(),
+    const SearchScreen(),
     const FavouritePage(),
     const CartPage(),
     const ProfilePage(),
@@ -26,30 +28,40 @@ class _HomeScreenState extends State<BottomNavbar> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
+        title: const Text(
           "Apna Store",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.bold,
+              fontSize: 24),
         ),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        elevation: 5,
+        elevation: 14,
         selectedItemColor: AppColors.primaryColor,
         backgroundColor: Colors.white,
         unselectedItemColor: Colors.grey,
         currentIndex: _selectedIndex,
-        selectedLabelStyle:
-            const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        selectedLabelStyle: const TextStyle(
+            color: AppColors.primaryColor, fontWeight: FontWeight.bold),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
               icon: Icon(Icons.favorite_outline), label: 'Favourite'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_shopping_cart),
+            icon: Icon(
+              Icons.add_shopping_cart,
+            ),
             label: "Cart",
           ),
           BottomNavigationBarItem(
