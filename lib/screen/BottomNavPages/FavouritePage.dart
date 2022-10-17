@@ -11,9 +11,6 @@ class _FavouritePageState extends State<FavouritePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Favorite Screen'),
-      ),
       body: SafeArea(
         child: Center(
           child: Column(
