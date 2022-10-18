@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.apna_store">
    <application
-        android:label="apna_store"
+        android:label="Apna Store"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
