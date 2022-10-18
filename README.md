@@ -4,6 +4,11 @@
 
 <h1 align=center> Application Preview 👀 </h1>
 <p align="center">
+
+   ![image](https://user-images.githubusercontent.com/70656957/196344349-40f22cde-f547-4e06-b545-130c3b231743.png)
+   
+</p>
+
   
 
 <h1 align=center> Tech Stack 🔥 </h1>  
