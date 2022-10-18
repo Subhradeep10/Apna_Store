@@ -167,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                     scrollDirection: Axis.horizontal,
                     itemCount: _products.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3, childAspectRatio: 0.8),
+                        crossAxisCount: 2, childAspectRatio: 0.9),
                     itemBuilder: (_, index) {
                       return GestureDetector(
                         onTap: () => Navigator.push(

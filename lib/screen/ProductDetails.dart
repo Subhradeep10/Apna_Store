@@ -106,7 +106,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AspectRatio(
-              aspectRatio: 1,
+              aspectRatio: 1.2,
               child: CarouselSlider(
                   items: widget._product['product-img']
                       .map<Widget>((item) => Container(
