@@ -30,7 +30,7 @@ Widget fetchData(String collectionName) {
                     : Image.network(_documentSnapshot['images'][0]),
                 title: Text(_documentSnapshot['name']),
                 subtitle: Text(
-                  "\Rs. ${_documentSnapshot['price'].toString()}",
+                  "\₹ ${_documentSnapshot['price'].toString()}",
                   style: TextStyle(color: Colors.red),
                 ),
                 trailing: IconButton(

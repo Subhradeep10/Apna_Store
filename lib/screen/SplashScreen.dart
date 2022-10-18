@@ -45,6 +45,18 @@ class _SplashScreenState extends State<SplashScreen> {
               SizedBox(
                 height: 20.h,
               ),
+              Text(
+                'India ki Apni Dukaan',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 20.sp,
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
               const CircularProgressIndicator(
                 color: Colors.white,
               ),
